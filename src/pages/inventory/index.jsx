@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { FiArrowDownWideNarrow, FiBox, FiDownload, FiFilter, FiMinus, FiPlus, FiSearch, FiX } from "react-icons/fi";
+import { FiArrowDown, FiBox, FiDownload, FiFilter, FiMinus, FiPlus, FiSearch, FiX } from "react-icons/fi";
 import Modal from "../../components/modal";
 import { formatCurrency, getStockLabel } from "../../data";
 import styles from "./styles.module.css";
@@ -104,7 +104,7 @@ function InventoryPage({ products, onAdjustStock }) {
         <div className={styles.filters}>
           <label className={styles.search}><FiSearch aria-hidden="true" /><input aria-label="Search inventory" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a product or SKU" />{query && <button type="button" onClick={() => setQuery("")} aria-label="Clear search"><FiX aria-hidden="true" /></button>}</label>
           <label className={styles.select}><FiFilter aria-hidden="true" /><select aria-label="Filter inventory" value={filter} onChange={(event) => setFilter(event.target.value)}>{stockFilters.map((item) => <option key={item}>{item}</option>)}</select></label>
-          <label className={styles.select}><FiArrowDownWideNarrow aria-hidden="true" /><select aria-label="Sort inventory" value={sort} onChange={(event) => setSort(event.target.value)}><option value="attention">Closest to low-stock point</option><option value="name">Product name</option><option value="highest">Most units</option></select></label>
+          <label className={styles.select}><FiArrowDown aria-hidden="true" /><select aria-label="Sort inventory" value={sort} onChange={(event) => setSort(event.target.value)}><option value="attention">Closest to low-stock point</option><option value="name">Product name</option><option value="highest">Most units</option></select></label>
         </div>
 
         {rows.length ? (
