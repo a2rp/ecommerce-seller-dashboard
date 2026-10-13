@@ -73,7 +73,7 @@ function InventoryPage({ products, onAdjustStock }) {
       setError("You cannot remove more than the " + adjusting.stock + " units currently available.");
       return;
     }
-    onAdjustStock(adjusting.id, direction === "add" ? value : -value);
+    onAdjustStock(adjusting.id, direction === "add" ? value : -value, reason);
     closeAdjust();
   };
 
