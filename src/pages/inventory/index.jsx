@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 
 const stockFilters = ["All stock", "Needs attention", "Out of stock", "In range"];
 
-function downloadStock(products) {
+const downloadStock = (products) => {
   const rows = [["Product", "SKU", "Category", "Available", "Low stock at", "Status"]];
   products.forEach((product) => rows.push([product.name, product.sku, product.category, product.stock, product.lowAt, getStockLabel(product)]));
   const csv = rows.map((row) => row.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")).join("\r\n");
@@ -18,7 +18,7 @@ function downloadStock(products) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function InventoryPage({ products, onAdjustStock }) {
+const InventoryPage = ({ products, onAdjustStock }) => {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All stock");
   const [sort, setSort] = useState("attention");
