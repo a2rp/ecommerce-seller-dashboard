@@ -37,11 +37,11 @@ function App() {
     if (product) notify(product.name + " was removed from your catalog.", "info");
   };
 
-  const adjustStock = (productId, amount) => {
+  const adjustStock = (productId, amount, reason = "Stock correction") => {
     const product = products.find((item) => item.id === productId);
     if (!product) return;
     setProducts((current) => current.map((item) => item.id === productId ? { ...item, stock: Math.max(0, item.stock + amount) } : item));
-    notify(product.name + " stock adjusted by " + amount + ".");
+    notify(product.name + " stock adjusted: " + reason + ".");
   };
 
   const setOrderStatus = (orderId, status) => {
