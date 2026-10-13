@@ -1,0 +1,4 @@
+.loading{min-height:280px;display:grid;place-items:center}
+.loading span{width:34px;height:34px;border:3px solid #dce6d9;border-top-color:var(--forest);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.loading span{animation:none}}
