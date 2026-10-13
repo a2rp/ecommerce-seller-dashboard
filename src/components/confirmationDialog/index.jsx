@@ -3,7 +3,7 @@ import { FiAlertTriangle } from "react-icons/fi";
 import Modal from "../modal";
 import styles from "./styles.module.css";
 
-function ConfirmationDialog({
+const ConfirmationDialog = ({
   isOpen,
   title = "Remove this item?",
   description,
@@ -12,7 +12,7 @@ function ConfirmationDialog({
   cancelLabel = "Keep it",
   onConfirm,
   onCancel,
-}) {
+}) => {
   const cancelRef = useRef(null);
   const message = description || "This item will be removed from the current demo.";
 
