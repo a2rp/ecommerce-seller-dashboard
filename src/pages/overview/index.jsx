@@ -112,7 +112,7 @@ function OverviewPage({ products, orders }) {
             </div>
           </div>
           <div className={styles.salesTotal}><strong>{formatCurrency(sales)}</strong><span><FiArrowUpRight aria-hidden="true" /> Recent orders</span></div>
-          <div className={styles.chart} role="img" aria-label={range === "week" ? "Order sales over the past seven days" : "Order sales over the past four weeks"}>
+          <div className={[styles.chart, range === "month" ? styles.monthChart : ""].join(" ")} role="img" aria-label={range === "week" ? "Order sales over the past seven days" : "Order sales over the past four weeks"}>
             {series.map((item, index) => {
               const height = item.amount ? Math.max((item.amount / maxBar) * 100, 9) : 4;
               return (
