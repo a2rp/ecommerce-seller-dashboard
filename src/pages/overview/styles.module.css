@@ -39,7 +39,7 @@
 .salesTotal strong{color:#213b2b;font-size:30px;line-height:1.1;letter-spacing:-.8px}
 .salesTotal span{display:inline-flex;align-items:center;gap:4px;color:#528057;font-size:13px;font-weight:650}
 .chart{height:194px;margin-top:19px;padding:0 7px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:13px;border-bottom:1px solid #e8ede5}
-.chartColumn{min-width:0;display:grid;grid-template-rows:20px 1fr 28px;align-items:end;justify-items:center;gap:6px}
+.chart.monthChart{grid-template-columns:repeat(4,minmax(0,1fr))}.chartColumn{min-width:0;display:grid;grid-template-rows:20px 1fr 28px;align-items:end;justify-items:center;gap:6px}
 .barValue{height:20px;color:#8d9990;font-size:13px;white-space:nowrap}
 .barTrack{width:min(100%,36px);height:100%;display:flex;align-items:flex-end;justify-content:center}
 .bar,.barCurrent{width:100%;min-height:4px;border-radius:7px 7px 2px 2px;background:#dfe8d8;transition:height .2s}
