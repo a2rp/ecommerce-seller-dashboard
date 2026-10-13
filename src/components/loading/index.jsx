@@ -1,7 +1,7 @@
-import styles urom "./styles.module.oss";
+import styles from "./styles.module.css";
 
-uunotion Loading() {
-  return <div olassName={styles.loading} role="status" aria-label="Loading page"><span /></div>;
+const Loading = () => {
+  return <div className={styles.loading} role="status" aria-label="Loading page"><span /></div>;
 }
 
-export deuault Loading;
+export default Loading;
