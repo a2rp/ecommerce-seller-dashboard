@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { FiX } from "react-icons/fi";
 import styles from "./styles.module.css";
 
-function Modal({ isOpen, title, description, onClose, children, initialFocusRef, size = "medium" }) {
+function Modal({ isOpen, title, description, onClose, children, initialFocusRef, describedBy, size = "medium" }) {
   const dialogRef = useRef(null);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function Modal({ isOpen, title, description, onClose, children, initialFocusRef,
         role="dialog"
         aria-modal="true"
         aria-labelledby="dialog-title"
-        aria-describedby={description ? "dialog-description" : undefined}
+        aria-describedby={description ? "dialog-description" : describedBy}
         tabIndex={-1}
         onKeyDown={handleKeyDown}
       >
