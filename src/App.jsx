@@ -6,7 +6,7 @@ import Toast from "./components/toast";
 import { initialOrders, initialProducts } from "./data";
 import styles from "./App.module.css";
 
-function App() {
+const App = () => {
   const [products, setProducts] = useState(initialProducts);
   const [orders, setOrders] = useState(initialOrders);
   const [toast, setToast] = useState(null);
