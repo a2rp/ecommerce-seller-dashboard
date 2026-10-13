@@ -7,9 +7,9 @@
 .brandProduct{color:#707c74;font-size:14px;font-weight:600}
 .navigation{align-self:stretch;display:flex;align-items:stretch;gap:5px}
 .navLink{position:relative;padding:0 13px;display:flex;align-items:center;gap:7px;color:#6c7870;font-size:14px;font-weight:650;white-space:nowrap;transition:color .18s ease,background .18s ease}
-.navLink::after{position:absolute;right:13px;bottom:0;left:13px;height:3px;border-radius:5px 5px 0 0;background:var(--forest);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.navLink::after{position:absolute;right:13px;bottom:0;left:13px;height:3px;border-radius:5px 5px 0 0;background:linear-gradient(90deg,#183f35,#a6bf5c);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
 .navLink:hover,.navLink.active{color:var(--forest-dark)}
-.navLink.active::after{transform:scaleX(1)}
+.navLink:hover::after,.navLink:focus-visible::after,.navLink.active::after{transform:scaleX(1)}
 .orderCount{min-width:20px;height:20px;padding:0 5px;display:grid;place-items:center;border-radius:20px;color:var(--forest);background:#e6efcf;font-size:13px;font-weight:750}
 .actions{margin-left:auto;display:flex;align-items:center;gap:17px}
 .notificationWrap{position:relative}
