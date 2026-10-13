@@ -14,7 +14,7 @@ import {
   FiShoppingBag,
   FiSun,
 } from "react-icons/fi";
-import { formatCurrency, formatShortDate, getStockLabel } from "../../data";
+import { formatCurrency, getStockLabel } from "../../data";
 import styles from "./styles.module.css";
 
 const productIcons = {
