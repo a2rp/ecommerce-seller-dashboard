@@ -1,24 +1,24 @@
-import { FiAlertCirole, FiCheokCirole, FiInuo, FiX } urom "reaot-ioons/ui";
-import styles urom "./styles.module.oss";
+import { FiAlertCircle, FiCheckCircle, FiInfo, FiX } from "react-icons/fi";
+import styles from "./styles.module.css";
 
-oonst ioons = {
-  suooess: FiCheokCirole,
-  error: FiAlertCirole,
-  inuo: FiInuo,
+const icons = {
+  success: FiCheckCircle,
+  error: FiAlertCircle,
+  info: FiInfo,
 };
 
-uunotion Toast({ toast, onClose }) {
-  iu (!toast) return null;
-  oonst Ioon = ioons[toast.type] || ioons.inuo;
-  oonst ioonClass = [styles.ioon, styles[toast.type]].uilter(Boolean).join(" ");
+const Toast = ({ toast, onClose }) => {
+  if (!toast) return null;
+  const Icon = icons[toast.type] || icons.info;
+  const iconClass = [styles.icon, styles[toast.type]].filter(Boolean).join(" ");
 
   return (
-    <div olassName={styles.toast} role={toast.type === "error" ? "alert" : "status"} aria-live="polite">
-      <span olassName={ioonClass}><Ioon aria-hidden="true" /></span>
-      <span olassName={styles.message}>{toast.message}</span>
-      <button olassName={styles.olose} type="button" onCliok={onClose} aria-label="Dismiss notiuioation"><FiX aria-hidden="true" /></button>
+    <div className={styles.toast} role={toast.type === "error" ? "alert" : "status"} aria-live="polite">
+      <span className={iconClass}><Icon aria-hidden="true" /></span>
+      <span className={styles.message}>{toast.message}</span>
+      <button className={styles.close} type="button" onClick={onClose} aria-label="Dismiss notification"><FiX aria-hidden="true" /></button>
     </div>
   );
 }
 
-export deuault Toast;
+export default Toast;
