@@ -65,6 +65,6 @@
 .doneMessage{margin-top:13px;display:flex;align-items:center;gap:7px;color:#5f8061;font-size:14px}
 .cancelOrder{margin-top:10px;padding:5px 0;border:0;color:#a65e52;background:transparent;font-size:13px;font-weight:650}
 .cancelOrder:hover{color:#8f4137}
-@media(max-width:1000px){.stats{grid-template-columns:1fr 1fr}.stats>div:nth-child(2){border-right:0}.stats>div:nth-child(-n+2){border-bottom:1px solid #edf0eb}.stats>div{min-height:82px}.filters{flex-wrap:wrap}.search{min-width:100%;flex-basis:100%}.select{flex:1}.table{min-width:850px}}
+@media(max-width:1120px){.stats{grid-template-columns:1fr 1fr}.stats>div:nth-child(2){border-right:0}.stats>div:nth-child(-n+2){border-bottom:1px solid #edf0eb}.stats>div{min-height:82px}.filters{flex-wrap:wrap}.search{min-width:100%;flex-basis:100%}.select{flex:1}.table{min-width:850px}}
 @media(max-width:640px){.page{gap:17px}.pageHeading{align-items:flex-start;flex-direction:column}.pageHeading h1{font-size:30px}.exportButton{min-height:39px}.orderPanel{padding:16px 13px 7px}.panelHeading p{max-width:280px}.select{min-width:0}.stats>div{padding:12px}.stats .valueStat{align-items:flex-start;flex-direction:column}.valueNote{text-align:left;max-width:none}}
 @media(prefers-reduced-motion:reduce){.exportButton,.search,.select,.advanceButton,.orderId{transition:none}}
