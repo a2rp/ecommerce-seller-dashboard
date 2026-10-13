@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { FiArrowDownWideNarrow, FiArrowRight, FiCheck, FiDownload, FiFilter, FiPackage, FiSearch, FiShoppingBag, FiTruck, FiX } from "react-icons/fi";
+import { FiArrowDown, FiArrowRight, FiCheck, FiDownload, FiFilter, FiPackage, FiSearch, FiShoppingBag, FiTruck, FiX } from "react-icons/fi";
 import ConfirmationDialog from "../../components/confirmationDialog";
 import Modal from "../../components/modal";
 import { formatCurrency, formatShortDate, orderStatuses } from "../../data";
@@ -106,7 +106,7 @@ function OrdersPage({ orders, onSetOrderStatus }) {
             {query && <button type="button" onClick={() => setQuery("")} aria-label="Clear search"><FiX aria-hidden="true" /></button>}
           </label>
           <label className={styles.select}><FiFilter aria-hidden="true" /><select aria-label="Filter orders by status" value={status} onChange={(event) => setStatus(event.target.value)}><option>All orders</option>{orderStatuses.map((item) => <option key={item}>{item}</option>)}</select></label>
-          <label className={styles.select}><FiArrowDownWideNarrow aria-hidden="true" /><select aria-label="Sort orders" value={sort} onChange={(event) => setSort(event.target.value)}><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="highest">Highest value</option><option value="lowest">Lowest value</option></select></label>
+          <label className={styles.select}><FiArrowDown aria-hidden="true" /><select aria-label="Sort orders" value={sort} onChange={(event) => setSort(event.target.value)}><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="highest">Highest value</option><option value="lowest">Lowest value</option></select></label>
         </div>
 
         {filtered.length ? (
