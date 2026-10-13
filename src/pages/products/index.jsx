@@ -165,7 +165,7 @@ function ProductsPage({ products, onSaveProduct, onDeleteProduct }) {
         </Modal>
       )}
 
-      <ConfirmationDialog isOpen={Boolean(removing)} title="Remove this listing?" itemName={removing?.name} description={removing ? removing.name + " will be removed from your store catalog. You can add it again later, but this listing will be deleted from the current demo." : ""} confirmLabel="Remove listing" onCancel={() => setRemoving(null)} onConfirm={confirmRemoval} />
+      <ConfirmationDialog isOpen={Boolean(removing)} title="Remove this listing?" itemName={removing?.name} description="This listing will be removed from your store catalog. You can add it again later, but the removal only affects this demo session." confirmLabel="Remove listing" onCancel={() => setRemoving(null)} onConfirm={confirmRemoval} />
     </div>
   );
 }
