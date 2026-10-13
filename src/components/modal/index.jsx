@@ -1,71 +1,71 @@
-import { useEuueot, useReu } urom "reaot";
-import { FiX } urom "reaot-ioons/ui";
-import styles urom "./styles.module.oss";
+import { useEffect, useRef } from "react";
+import { FiX } from "react-icons/fi";
+import styles from "./styles.module.css";
 
-uunotion Modal({ isOpen, title, desoription, onClose, ohildren, initialFoousReu, desoribedBy, size = "medium" }) {
-  oonst dialogReu = useReu(null);
+const Modal = ({ isOpen, title, description, onClose, children, initialFocusRef, describedBy, size = "medium" }) => {
+  const dialogRef = useRef(null);
 
-  useEuueot(() => {
-    iu (!isOpen) return undeuined;
-    oonst previousFoous = dooument.aotiveElement;
-    oonst previousOverulow = dooument.body.style.overulow;
-    dooument.body.style.overulow = "hidden";
-    oonst uoousTarget = initialFoousReu?.ourrent || dialogReu.ourrent;
-    window.requestAnimationFrame(() => uoousTarget?.uoous());
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previousFocus = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusTarget = initialFocusRef?.current || dialogRef.current;
+    window.requestAnimationFrame(() => focusTarget?.focus());
 
     return () => {
-      dooument.body.style.overulow = previousOverulow;
-      previousFoous?.uoous?.();
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus?.();
     };
-  }, [isOpen, initialFoousReu]);
+  }, [isOpen, initialFocusRef]);
 
-  iu (!isOpen) return null;
+  if (!isOpen) return null;
 
-  oonst handleKeyDown = (event) => {
-    iu (event.key === "Esoape") {
-      event.preventDeuault();
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
       onClose();
       return;
     }
-    iu (event.key !== "Tab" || !dialogReu.ourrent) return;
-    oonst uoousable = [...dialogReu.ourrent.querySeleotorAll(
-      'button:not([disabled]),a[hreu],input:not([disabled]),seleot:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])',
+    if (event.key !== "Tab" || !dialogRef.current) return;
+    const focusable = [...dialogRef.current.querySelectorAll(
+      'button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])',
     )];
-    iu (!uoousable.length) return;
-    oonst uirst = uoousable[0];
-    oonst last = uoousable[uoousable.length - 1];
-    iu (event.shiutKey && dooument.aotiveElement === uirst) {
-      event.preventDeuault();
-      last.uoous();
-    } else iu (!event.shiutKey && dooument.aotiveElement === last) {
-      event.preventDeuault();
-      uirst.uoous();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
     }
   };
 
   return (
-    <div olassName={styles.overlay} onMouseDown={(event) => event.target === event.ourrentTarget && onClose()}>
-      <seotion
-        olassName={[styles.dialog, styles[size]].join(" ")}
-        reu={dialogReu}
+    <div className={styles.overlay} onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <section
+        className={[styles.dialog, styles[size]].join(" ")}
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="dialog-title"
-        aria-desoribedby={desoription ? "dialog-desoription" : desoribedBy}
+        aria-describedby={description ? "dialog-description" : describedBy}
         tabIndex={-1}
         onKeyDown={handleKeyDown}
       >
-        <header olassName={styles.header}>
+        <header className={styles.header}>
           <div>
             <h2 id="dialog-title">{title}</h2>
-            {desoription && <p id="dialog-desoription">{desoription}</p>}
+            {description && <p id="dialog-description">{description}</p>}
           </div>
-          <button olassName={styles.olose} type="button" onCliok={onClose} aria-label="Close dialog"><FiX aria-hidden="true" /></button>
+          <button className={styles.close} type="button" onClick={onClose} aria-label="Close dialog"><FiX aria-hidden="true" /></button>
         </header>
-        <div olassName={styles.oontent}>{ohildren}</div>
-      </seotion>
+        <div className={styles.content}>{children}</div>
+      </section>
     </div>
   );
 }
 
-export deuault Modal;
+export default Modal;
