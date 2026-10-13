@@ -1,0 +1,11 @@
+.body{display:flex;align-items:flex-start;gap:13px}
+.icon{width:40px;height:40px;flex:0 0 auto;display:grid;place-items:center;border-radius:12px;color:#b65c39;background:#fff2e5;font-size:19px}
+.body>div{display:grid;gap:5px;padding-top:1px}
+.body strong{color:#293a31;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.body p{color:#738078;font-size:14px;line-height:1.5}
+.actions{margin-top:23px;display:flex;justify-content:flex-end;gap:9px}
+.cancel,.confirm{min-height:40px;padding:0 13px;border:1px solid #dce3da;border-radius:9px;color:#56645a;background:#fff;font-size:14px;font-weight:700;transition:border-color .18s,background .18s,box-shadow .18s}
+.cancel:hover{border-color:#b9c9b8;background:#f5f7f2}
+.confirm{border-color:#b44d43;color:#fff;background:#b44d43}
+.confirm:hover{border-color:#a33f36;background:#a33f36;box-shadow:0 5px 12px #b44d4320}
+@media(max-width:480px){.actions button{flex:1}}
