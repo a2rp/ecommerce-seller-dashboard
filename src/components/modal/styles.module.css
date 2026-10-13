@@ -1,0 +1,13 @@
+.overlay{position:fixed;inset:0;z-index:70;padding:24px;display:grid;place-items:center;background:#14241ccc;backdrop-filter:blur(5px);animation:fadeIn .16s ease-out}
+.dialog{width:min(100%,620px);max-height:min(88vh,850px);overflow:auto;border:1px solid #e0e6dd;border-radius:18px;background:#fff;box-shadow:0 30px 90px #10251e45;animation:riseIn .2s ease-out}
+.dialog.small{max-width:440px}.dialog.large{max-width:760px}
+.header{padding:21px 23px 17px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border-bottom:1px solid #edf0eb}
+.header h2{color:#21352a;font-size:20px;line-height:1.25;letter-spacing:-.35px}
+.header p{margin-top:6px;color:#748078;font-size:14px;line-height:1.45}
+.close{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #e3e8e1;border-radius:9px;color:#6f7c72;background:#fff;font-size:17px;transition:border-color .18s,background .18s}
+.close:hover{border-color:#c8d5c5;background:#f4f7f1}
+.content{padding:21px 23px 23px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes riseIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.overlay{padding:12px}.dialog{max-height:94vh;border-radius:15px}.header,.content{padding-inline:17px}}
+@media(prefers-reduced-motion:reduce){.overlay,.dialog{animation:none}}
