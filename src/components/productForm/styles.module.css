@@ -1,0 +1,19 @@
+.form{display:grid;gap:18px}
+.formLead{display:flex;align-items:center;gap:9px;color:#6d7a71;font-size:14px}
+.formLead>span{width:32px;height:32px;display:grid;place-items:center;border-radius:9px;color:#426b4e;background:#eff5e4;font-size:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px 13px}
+.field{min-width:0;display:grid;align-content:start;gap:6px;color:#46564b;font-size:14px;font-weight:700}
+.field input,.field select,.field textarea{width:100%;min-height:42px;padding:9px 11px;border:1px solid #dce4da;border-radius:9px;color:#2d3e33;background:#fff;font-size:14px;font-weight:500;transition:border-color .18s,box-shadow .18s}
+.field input::placeholder,.field textarea::placeholder{color:#9aa49c}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#789b70;outline:0;box-shadow:0 0 0 3px #7ca58b25}
+.field input[aria-invalid=true],.field textarea[aria-invalid=true]{border-color:#c85c4d}
+.field textarea{min-height:92px;resize:vertical;line-height:1.45}
+.numberInput{position:relative}.numberInput>span{position:absolute;top:9px;left:11px;color:#758078;font-size:14px;font-weight:500}.numberInput input{padding-left:26px}
+.fullWidth{grid-column:1/-1}
+.error{color:#ad5045;font-size:13px;font-weight:550;line-height:1.4}
+.actions{display:flex;justify-content:flex-end;gap:9px;padding-top:2px}
+.cancel,.save{min-height:41px;padding:0 14px;border:1px solid #dbe3d9;border-radius:9px;color:#56645a;background:#fff;font-size:14px;font-weight:700;transition:border-color .18s,background .18s,box-shadow .18s}
+.cancel:hover{border-color:#b9c9b8;background:#f5f7f2}
+.save{border-color:var(--forest);color:#fff;background:var(--forest)}
+.save:hover{background:#285c4b;box-shadow:0 5px 12px #183f3523}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.fullWidth{grid-column:auto}.actions button{flex:1}}
