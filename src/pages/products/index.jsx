@@ -32,7 +32,8 @@ function ProductsPage({ products, onSaveProduct, onDeleteProduct }) {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("All listings");
   const [sort, setSort] = useState("popular");
-  const [formOpen, setFormOpen] = useState(Boolean(location.state?.openCreate));
+  const [formOpen, setFormOpen] = useState(false);
+  const formIsOpen = formOpen || Boolean(location.state?.openCreate);
   const [editing, setEditing] = useState(null);
   const [viewing, setViewing] = useState(null);
   const [removing, setRemoving] = useState(null);
@@ -144,7 +145,7 @@ function ProductsPage({ products, onSaveProduct, onDeleteProduct }) {
         )}
       </section>
 
-      {formOpen && <ProductForm key={editing?.id || "new-listing"} product={editing} onSave={save} onClose={() => { setFormOpen(false); setEditing(null); }} />}
+      {formIsOpen && <ProductForm key={editing?.id || "new-listing"} product={editing} onSave={save} onClose={closeForm} />}
 
       {viewing && (
         <Modal isOpen title={viewing.name} description={viewing.sku + " · " + viewing.category} onClose={() => setViewing(null)} size="medium">
