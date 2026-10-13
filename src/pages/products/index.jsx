@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FiArrowDownWideNarrow,
+  FiArrowDown,
   FiBox,
   FiCoffee,
   FiDroplet,
@@ -106,7 +106,7 @@ function ProductsPage({ products, onSaveProduct, onDeleteProduct }) {
             {search && <button type="button" onClick={() => setSearch("")} aria-label="Clear search"><FiX aria-hidden="true" /></button>}
           </label>
           <label className={styles.selectField}><FiFilter aria-hidden="true" /><select aria-label="Filter listings by status" value={status} onChange={(event) => setStatus(event.target.value)}>{statuses.map((item) => <option key={item}>{item}</option>)}</select></label>
-          <label className={styles.selectField}><FiArrowDownWideNarrow aria-hidden="true" /><select aria-label="Sort listings" value={sort} onChange={(event) => setSort(event.target.value)}><option value="popular">Most sold</option><option value="recent">Recently added</option><option value="stock">Lowest stock</option><option value="priceLow">Price: low to high</option><option value="priceHigh">Price: high to low</option></select></label>
+          <label className={styles.selectField}><FiArrowDown aria-hidden="true" /><select aria-label="Sort listings" value={sort} onChange={(event) => setSort(event.target.value)}><option value="popular">Most sold</option><option value="recent">Recently added</option><option value="stock">Lowest stock</option><option value="priceLow">Price: low to high</option><option value="priceHigh">Price: high to low</option></select></label>
         </div>
 
         {filtered.length ? (
