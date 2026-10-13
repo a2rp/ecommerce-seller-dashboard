@@ -13,7 +13,7 @@
 .stats>div>span:last-child{display:grid;gap:1px}
 .stats small{color:#7e8a82;font-size:13px}.stats strong{color:#293b30;font-size:20px;line-height:1.2}
 .stats .valueStat{justify-content:space-between;gap:10px}
-.valueStat strong{font-size:22px}
+.valueStat>span:first-child{display:grid;gap:1px}.valueStat strong{font-size:22px}
 .valueNote{max-width:120px;color:#98a197;font-size:13px;line-height:1.35;text-align:right}
 .orderPanel{min-width:0;padding:20px 20px 8px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 4px 16px #1b33220a}
 .panelHeading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
