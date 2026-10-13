@@ -11,21 +11,20 @@ const routes = [
 ];
 
 function Header({ newOrders = 0 }) {
-  const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [notificationPath, setNotificationPath] = useState(null);
   const popoverRef = useRef(null);
   const location = useLocation();
+  const notificationsOpen = notificationPath === location.pathname;
   const navigate = useNavigate();
 
-  useEffect(() => setNotificationsOpen(false), [location.pathname]);
-
-  useEffect(() => {
+useEffect(() => {
     const closeOnOutsideClick = (event) => {
       if (popoverRef.current && !popoverRef.current.contains(event.target)) {
-        setNotificationsOpen(false);
+        setNotificationPath(null);
       }
     };
     const closeOnEscape = (event) => {
-      if (event.key === "Escape") setNotificationsOpen(false);
+      if (event.key === "Escape") setNotificationPath(null);
     };
     document.addEventListener("pointerdown", closeOnOutsideClick);
     document.addEventListener("keydown", closeOnEscape);
@@ -67,7 +66,7 @@ function Header({ newOrders = 0 }) {
               type="button"
               aria-label="Notifications"
               aria-expanded={notificationsOpen}
-              onClick={() => setNotificationsOpen((open) => !open)}
+              onClick={() => setNotificationPath((path) => path === location.pathname ? null : location.pathname)}
             >
               <FiBell aria-hidden="true" />
               {newOrders > 0 && <span className={styles.notificationDot} />}
@@ -76,7 +75,7 @@ function Header({ newOrders = 0 }) {
               <div className={styles.notificationPanel} role="dialog" aria-label="Store notifications">
                 <div className={styles.notificationHeading}>
                   <strong>Store pulse</strong>
-                  <button type="button" onClick={() => setNotificationsOpen(false)} aria-label="Close notifications"><FiChevronDown aria-hidden="true" /></button>
+                  <button type="button" onClick={() => setNotificationPath(null)} aria-label="Close notifications"><FiChevronDown aria-hidden="true" /></button>
                 </div>
                 {newOrders > 0 ? (
                   <button className={styles.notificationItem} type="button" onClick={() => navigate("/orders")}>
