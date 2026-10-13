@@ -63,10 +63,15 @@ function ProductsPage({ products, onSaveProduct, onDeleteProduct }) {
     setFormOpen(true);
   };
 
-  const save = (values) => {
-    onSaveProduct(values, editing?.id);
+  const closeForm = () => {
     setFormOpen(false);
     setEditing(null);
+    if (location.state?.openCreate) navigate(location.pathname, { replace: true, state: null });
+  };
+
+  const save = (values) => {
+    onSaveProduct(values, editing?.id);
+    closeForm();
   };
 
   const confirmRemoval = () => {
