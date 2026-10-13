@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { FiArrowDown, FiBox, FiDownload, FiFilter, FiMinus, FiPlus, FiSearch, FiX } from "react-icons/fi";
 import Modal from "../../components/modal";
 import { formatCurrency, getStockLabel } from "../../data";
@@ -27,6 +27,7 @@ function InventoryPage({ products, onAdjustStock }) {
   const [direction, setDirection] = useState("add");
   const [reason, setReason] = useState("Restock received");
   const [error, setError] = useState("");
+  const amountRef = useRef(null);
 
   const lowItems = products.filter((product) => product.stock <= product.lowAt);
   const stockValue = products.reduce((total, product) => total + product.stock * product.price, 0);
@@ -141,9 +142,9 @@ function InventoryPage({ products, onAdjustStock }) {
       </section>
 
       {adjusting && (
-        <Modal isOpen title={direction === "add" ? "Add stock" : "Reduce stock"} description={adjusting.name + " · " + adjusting.stock + " units currently available"} onClose={closeAdjust} size="small">
+        <Modal isOpen title={direction === "add" ? "Add stock" : "Reduce stock"} description={adjusting.name + " · " + adjusting.stock + " units currently available"} onClose={closeAdjust} initialFocusRef={amountRef} size="small">
           <form className={styles.adjustForm} onSubmit={submitAdjustment} noValidate>
-            <label className={styles.quantityField}><span>Number of units</span><input autoFocus type="number" min="1" step="1" value={amount} onChange={(event) => { setAmount(event.target.value); setError(""); }} placeholder="e.g. 12" aria-invalid={Boolean(error)} /></label>
+            <label className={styles.quantityField}><span>Number of units</span><input ref={amountRef} type="number" min="1" step="1" value={amount} onChange={(event) => { setAmount(event.target.value); setError(""); }} placeholder="e.g. 12" aria-invalid={Boolean(error)} /></label>
             {direction === "remove" && <label className={styles.quantityField}><span>Reason</span><select value={reason} onChange={(event) => setReason(event.target.value)}><option>Damaged or missing</option><option>Quality check</option><option>Stock correction</option></select></label>}
             {direction === "add" && <p className={styles.adjustHint}>New stock will be added to the current available units.</p>}
             {error && <p className={styles.error} role="alert">{error}</p>}
