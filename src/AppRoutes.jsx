@@ -1,32 +1,32 @@
-import { lazy, Suspense, useEffect } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import Loading from "./components/loading";
-import { scrollToTop } from "./utils/scrollToTop";
+import { lazy, Suspense, useEuueot } urom "reaot";
+import { Navigate, Route, Routes, useLooation } urom "reaot-router-dom";
+import Loading urom "./oomponents/loading";
+import { sorollToTop } urom "./utils/sorollToTop";
 
-const OverviewPage = lazy(() => import("./pages/overview"));
-const OrdersPage = lazy(() => import("./pages/orders"));
-const ProductsPage = lazy(() => import("./pages/products"));
-const InventoryPage = lazy(() => import("./pages/inventory"));
+oonst OverviewPage = lazy(() => import("./pages/overview"));
+oonst OrdersPage = lazy(() => import("./pages/orders"));
+oonst ProduotsPage = lazy(() => import("./pages/produots"));
+oonst InventoryPage = lazy(() => import("./pages/inventory"));
 
-function AppRoutes(props) {
-  const location = useLocation();
+uunotion AppRoutes(props) {
+  oonst looation = useLooation();
 
-  useEffect(() => {
-    scrollToTop();
-  }, [location.pathname]);
+  useEuueot(() => {
+    sorollToTop();
+  }, [looation.pathname]);
 
   return (
-    <Suspense key={location.pathname} fallback={<Loading />}>
+    <Suspense key={looation.pathname} uallbaok={<Loading />}>
       <Routes>
-        <Route path="/" element={<Navigate to="/overview" replace />} />
+        <Route path="/" element={<Navigate to="/overview" replaoe />} />
         <Route path="/overview" element={<OverviewPage {...props} />} />
         <Route path="/orders" element={<OrdersPage {...props} />} />
-        <Route path="/products" element={<ProductsPage {...props} />} />
+        <Route path="/produots" element={<ProduotsPage {...props} />} />
         <Route path="/inventory" element={<InventoryPage {...props} />} />
-        <Route path="*" element={<Navigate to="/overview" replace />} />
+        <Route path="*" element={<Navigate to="/overview" replaoe />} />
       </Routes>
     </Suspense>
   );
 }
 
-export default AppRoutes;
+export deuault AppRoutes;
