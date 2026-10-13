@@ -1,0 +1,33 @@
+.header{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:#fbfcf9eF;backdrop-filter:blur(16px)}
+.headerInner{min-height:78px;max-width:1460px;margin:auto;padding:0 34px;display:flex;align-items:center;gap:36px}
+.brand{flex:0 0 auto;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brandMark{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;color:var(--lime);background:var(--forest);font-size:17px}
+.brandName{color:var(--forest-dark);font-size:20px;font-weight:850;letter-spacing:-.8px}.brandName span{color:#8a9e49}
+.brandDivider{height:24px;margin:0 3px 0 7px;border-left:1px solid var(--line)}
+.brandProduct{color:#707c74;font-size:14px;font-weight:600}
+.navigation{align-self:stretch;display:flex;align-items:stretch;gap:5px}
+.navLink{position:relative;padding:0 13px;display:flex;align-items:center;gap:7px;color:#6c7870;font-size:14px;font-weight:650;white-space:nowrap;transition:color .18s ease,background .18s ease}
+.navLink::after{position:absolute;right:13px;bottom:0;left:13px;height:3px;border-radius:5px 5px 0 0;background:var(--forest);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.navLink:hover,.navLink.active{color:var(--forest-dark)}
+.navLink.active::after{transform:scaleX(1)}
+.orderCount{min-width:20px;height:20px;padding:0 5px;display:grid;place-items:center;border-radius:20px;color:var(--forest);background:#e6efcf;font-size:13px;font-weight:750}
+.actions{margin-left:auto;display:flex;align-items:center;gap:17px}
+.notificationWrap{position:relative}
+.notificationButton{position:relative;width:39px;height:39px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:#50635a;background:#fff;font-size:17px;transition:border-color .18s,box-shadow .18s}
+.notificationButton:hover{border-color:#9cac8e;box-shadow:0 4px 12px #223a2b12}
+.notificationDot{position:absolute;top:7px;right:7px;width:8px;height:8px;border:1px solid white;border-radius:50%;background:#dd714d}
+.notificationPanel{position:absolute;top:48px;right:-10px;width:min(330px,calc(100vw - 28px));padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 18px 48px #21392b24}
+.notificationHeading{display:flex;align-items:center;justify-content:space-between;padding:1px 1px 11px;border-bottom:1px solid #edf0eb;color:var(--ink);font-size:15px}
+.notificationHeading button{width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:8px;color:#6e7972;background:#f3f5f0;font-size:16px;transform:rotate(180deg)}
+.notificationItem{width:100%;padding:13px 2px 3px;display:flex;align-items:flex-start;gap:10px;text-align:left;border:0;color:var(--ink);background:transparent}
+.notificationIcon{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border-radius:10px;color:#355a46;background:#edf4e3}
+.notificationItem>span:last-child{display:grid;gap:3px}.notificationItem strong{font-size:14px}.notificationItem small,.quietNotice{color:var(--muted);font-size:13px;line-height:1.45}
+.quietNotice{padding:13px 2px 2px}
+.addButton{min-height:40px;padding:0 13px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--forest);border-radius:9px;color:#fff;background:var(--forest);font-size:14px;font-weight:700;white-space:nowrap;transition:background .18s,box-shadow .18s}
+.addButton:hover{background:#285c4b;box-shadow:0 6px 14px #183f3523}
+.profile{display:flex;align-items:center;gap:9px;white-space:nowrap}
+.profileAvatar{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;color:var(--forest);background:var(--lime);font-size:15px;font-weight:850}
+.profileCopy{display:grid;gap:1px}.profileCopy strong{color:#34443c;font-size:13px}.profileCopy small{color:#89938c;font-size:13px}
+@media(max-width:1080px){.headerInner{gap:17px;padding:0 22px}.actions{gap:10px}.brandProduct{display:none}.brandDivider{display:none}.profileCopy{display:none}}
+@media(max-width:760px){.headerInner{min-height:auto;padding:12px 16px 0;display:grid;grid-template-columns:1fr auto;gap:10px}.navigation{grid-row:2;grid-column:1/-1;margin:0 -16px;padding:0 10px;overflow-x:auto;scrollbar-width:none}.navigation::-webkit-scrollbar{display:none}.navLink{min-height:44px;padding-inline:12px}.navLink::after{right:12px;left:12px}.actions{gap:8px}.notificationButton{width:36px;height:36px}.addButton{min-height:37px;padding-inline:10px;font-size:13px}.brandMark{width:32px;height:32px}.brandName{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.navLink,.navLink::after,.notificationButton,.addButton{transition:none}}
