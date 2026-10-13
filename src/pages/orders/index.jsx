@@ -12,7 +12,7 @@ const nextStatus = {
   Shipped: "Delivered",
 };
 
-function downloadCsv(rows) {
+const downloadCsv = (rows) => {
   const columns = ["Order", "Customer", "Date", "Items", "Total", "Status", "Channel"];
   const lines = rows.map((order) => [
     order.id,
@@ -33,7 +33,7 @@ function downloadCsv(rows) {
   URL.revokeObjectURL(url);
 }
 
-function OrdersPage({ orders, onSetOrderStatus }) {
+const OrdersPage = ({ orders, onSetOrderStatus }) => {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("All orders");
   const [sort, setSort] = useState("newest");
