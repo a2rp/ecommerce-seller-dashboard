@@ -1,0 +1,72 @@
+.page{display:grid;gap:22px}
+.pageHeading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.date{margin-bottom:6px;color:#819087;font-size:13px;font-weight:650}
+.pageHeading h1{color:var(--ink);font-size:clamp(27px,3vw,36px);line-height:1.14;letter-spacing:-1.25px}
+.subtitle{margin-top:7px;color:var(--muted);font-size:15px}
+.primaryButton{min-height:43px;padding:0 15px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--forest);border-radius:10px;color:white;background:var(--forest);font-size:14px;font-weight:700;white-space:nowrap;transition:background .18s,box-shadow .18s}
+.primaryButton:hover{background:#285c4b;box-shadow:0 6px 15px #183f3523}
+.welcomeCard{position:relative;min-height:226px;padding:27px 30px;overflow:hidden;display:grid;grid-template-columns:minmax(240px,1fr) 1.35fr;align-items:center;gap:28px;border-radius:18px;color:#fff;background:linear-gradient(110deg,#173f35,#235844 58%,#395f43)}
+.welcomeCopy,.welcomeNumbers{position:relative;z-index:1}
+.welcomeLabel{display:inline-flex;align-items:center;gap:8px;color:#d9e6ca;font-size:13px;font-weight:800;letter-spacing:.8px}
+.welcomeLabel span{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.welcomeCopy h2{margin-top:9px;color:#fff;font-size:30px;line-height:1.15;letter-spacing:-.8px}
+.welcomeCopy p{max-width:310px;margin-top:7px;color:#d1ded4;font-size:14px}
+.welcomeButton{margin-top:17px;padding:9px 12px;display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff35;border-radius:9px;color:#21372c;background:#d7f078;font-size:14px;font-weight:750;transition:background .18s,box-shadow .18s}
+.welcomeButton:hover{background:#e2f991;box-shadow:0 5px 15px #081b1140}
+.welcomeNumbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.welcomeNumbers>div{min-height:96px;padding:5px 18px;display:grid;align-content:center;gap:5px;border-left:1px solid #ffffff30}
+.welcomeNumbers span{color:#ccded0;font-size:13px;font-weight:600}
+.welcomeNumbers strong{color:#f9fff2;font-size:27px;line-height:1.08;letter-spacing:-.7px}
+.welcomeNumbers small{color:#b7cabb;font-size:13px}
+.welcomeOrb{position:absolute;top:-120px;right:-100px;width:340px;height:340px;border:1px solid #ffffff17;border-radius:50%;box-shadow:0 0 0 26px #ffffff08,0 0 0 56px #ffffff06;pointer-events:none}
+.summaryGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.summaryCard{min-height:86px;padding:15px;display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;background:var(--paper);box-shadow:0 4px 16px #1b33220a}
+.summaryIcon{width:39px;height:39px;flex:0 0 auto;display:grid;place-items:center;border-radius:11px;color:#385f46;background:#edf4e3;font-size:18px}
+.warnIcon{color:#a45e32;background:#fff1df}.goodIcon{color:#3b8561;background:#e8f5eb}
+.summaryCard>div{min-width:0;display:grid;gap:1px}
+.summaryCard small{color:#77847b;font-size:13px}
+.summaryCard strong{color:#21352a;font-size:21px;line-height:1.15}
+.summaryNote{margin-left:auto;color:#99a39b;font-size:13px;text-align:right}
+.contentGrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);gap:16px}
+.card{min-width:0;padding:20px;border:1px solid var(--line);border-radius:15px;background:var(--paper);box-shadow:0 4px 16px #1b33220a}
+.cardHeading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.cardHeading h2{color:#293c31;font-size:17px;letter-spacing:-.25px}
+.cardHeading p{margin-top:3px;color:#7a867e;font-size:13px;line-height:1.45}
+.rangeButtons{padding:3px;display:flex;gap:2px;border:1px solid #e6ebe3;border-radius:9px;background:#f5f7f2}
+.rangeButtons button{min-height:30px;padding:0 9px;border:0;border-radius:7px;color:#718076;background:transparent;font-size:13px;font-weight:650}
+.rangeButtons button:hover{color:#284c37}.rangeButtons .selectedRange{color:#284c37;background:#e8efd9;box-shadow:0 1px 3px #283b2515}
+.salesTotal{margin-top:20px;display:flex;align-items:baseline;gap:11px}
+.salesTotal strong{color:#213b2b;font-size:30px;line-height:1.1;letter-spacing:-.8px}
+.salesTotal span{display:inline-flex;align-items:center;gap:4px;color:#528057;font-size:13px;font-weight:650}
+.chart{height:194px;margin-top:19px;padding:0 7px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:13px;border-bottom:1px solid #e8ede5}
+.chartColumn{min-width:0;display:grid;grid-template-rows:20px 1fr 28px;align-items:end;justify-items:center;gap:6px}
+.barValue{height:20px;color:#8d9990;font-size:13px;white-space:nowrap}
+.barTrack{width:min(100%,36px);height:100%;display:flex;align-items:flex-end;justify-content:center}
+.bar,.barCurrent{width:100%;min-height:4px;border-radius:7px 7px 2px 2px;background:#dfe8d8;transition:height .2s}
+.barCurrent{background:#648954}
+.barLabel{padding-top:3px;color:#78847b;font-size:13px}
+.iconButton{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #e1e7df;border-radius:9px;color:#607468;background:#fff;font-size:16px;transition:border-color .18s,background .18s}
+.iconButton:hover{border-color:#a8bea1;background:#f5f8f0}
+.orderList,.favoriteList,.stockList{margin-top:12px}
+.orderRow,.favoriteRow,.stockRow{width:100%;min-height:60px;display:flex;align-items:center;gap:10px;text-align:left;border:0;border-bottom:1px solid #edf0eb;color:inherit;background:transparent}
+.orderRow:last-child,.favoriteRow:last-child,.stockRow:last-child{border-bottom:0}
+.orderRow:hover,.favoriteRow:hover,.stockRow:hover{background:#fafbf8}
+.orderGlyph,.productGlyph{width:35px;height:35px;flex:0 0 auto;display:grid;place-items:center;border-radius:10px;color:#557354;background:#eff4e8;font-size:16px}
+.orderInfo,.productInfo{min-width:0;flex:1;display:grid;gap:1px}
+.orderInfo strong,.productInfo strong{overflow:hidden;color:#34463b;font-size:14px;font-weight:680;text-overflow:ellipsis;white-space:nowrap}
+.orderInfo small,.productInfo small{color:#8b968e;font-size:13px}
+.status{padding:5px 8px;border-radius:7px;color:#536e50;background:#eff4e7;font-size:13px;font-weight:700;white-space:nowrap}
+.new{color:#9a6335;background:#fff2e2}.packing{color:#4a6d9a;background:#eef4ff}.readytoship{color:#6d5598;background:#f4efff}.shipped{color:#3c7283;background:#e9f6f8}.delivered{color:#4f7656;background:#edf5e9}.cancelled{color:#a95b50;background:#fff0ec}
+.rowArrow{flex:0 0 auto;color:#a1aaa3;font-size:15px}
+.textLink{margin-top:13px;padding:5px 0;display:inline-flex;align-items:center;gap:7px;border:0;color:#426847;background:transparent;font-size:14px;font-weight:700;transition:color .18s}
+.textLink:hover{color:#1d4730}
+.rank{width:24px;color:#98a398;font-size:13px;font-weight:700}
+.unitsSold,.stockCount{display:grid;justify-items:end;color:#30473a;font-size:14px;font-weight:750}
+.unitsSold small,.stockCount small{color:#929d94;font-size:13px;font-weight:500}
+.stockCount{color:#9b6037}
+.emptyStock{min-height:80px;display:flex;align-items:center;gap:9px;color:#65846b;font-size:14px}
+.emptyStock svg{color:#4d8a62}
+@media(max-width:1100px){.welcomeCard{grid-template-columns:1fr 1.2fr;padding-inline:23px}.summaryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.contentGrid{grid-template-columns:1fr 1fr}.summaryNote{max-width:110px}}
+@media(max-width:760px){.page{gap:17px}.pageHeading{align-items:flex-start}.pageHeading h1{font-size:29px}.pageHeading>.primaryButton{padding:0 10px;font-size:13px}.welcomeCard{grid-template-columns:1fr;padding:22px}.welcomeNumbers{grid-template-columns:repeat(3,1fr)}.welcomeNumbers>div{min-height:76px;padding:4px 10px}.welcomeNumbers>div:first-child{border-left:0;padding-left:0}.welcomeNumbers strong{font-size:22px}.welcomeOrb{right:-200px}.contentGrid{grid-template-columns:1fr}.card{padding:17px}.chart{gap:6px}.barValue{font-size:13px}}
+@media(max-width:480px){.pageHeading{flex-direction:column}.pageHeading>.primaryButton{min-height:40px}.summaryGrid{grid-template-columns:1fr 1fr;gap:9px}.summaryCard{min-height:80px;padding:10px;gap:8px}.summaryIcon{width:32px;height:32px;font-size:16px}.summaryCard strong{font-size:19px}.summaryNote{display:none}.welcomeCopy h2{font-size:27px}.welcomeNumbers{grid-template-columns:1fr}.welcomeNumbers>div{min-height:auto;padding:9px 0;border-top:1px solid #ffffff30;border-left:0}.welcomeNumbers>div:first-child{border-top:0}.welcomeNumbers strong{font-size:22px}.chart{height:168px}.barValue{font-size:13px}.status{padding:4px 6px}}
+@media(prefers-reduced-motion:reduce){.primaryButton,.welcomeButton,.bar,.barCurrent,.iconButton,.textLink{transition:none}}
