@@ -14,13 +14,13 @@ function ConfirmationDialog({
   onCancel,
 }) {
   const cancelRef = useRef(null);
-  const message = description || (itemName ? itemName + " will be removed from this store." : "This action cannot be undone.");
+  const message = description || "This item will be removed from the current demo.";
 
   return (
     <Modal
       isOpen={isOpen}
       title={title}
-      description={message}
+      describedBy="confirmation-description"
       onClose={onCancel}
       initialFocusRef={cancelRef}
       size="small"
@@ -29,7 +29,7 @@ function ConfirmationDialog({
         <span className={styles.icon}><FiAlertTriangle aria-hidden="true" /></span>
         <div>
           <strong>{itemName || "Please confirm this change"}</strong>
-          <p>{message}</p>
+          <p id="confirmation-description">{message}</p>
         </div>
       </div>
       <div className={styles.actions}>
