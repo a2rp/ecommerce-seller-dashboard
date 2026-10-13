@@ -31,7 +31,7 @@ const productIcons = {
   box: FiPackage,
 };
 
-function makeSeries(orders, range) {
+const makeSeries = (orders, range) => {
   const groups = range === "week" ? 7 : 4;
   return Array.from({ length: groups }, (_, index) => {
     const date = new Date();
@@ -54,7 +54,7 @@ function makeSeries(orders, range) {
   });
 }
 
-function OverviewPage({ products, orders }) {
+const OverviewPage = ({ products, orders }) => {
   const [range, setRange] = useState("week");
   const navigate = useNavigate();
   const sales = orders.filter((order) => order.status !== "Cancelled").reduce((total, order) => total + order.total, 0);
