@@ -23,7 +23,7 @@ function downloadCsv(rows) {
     order.status,
     order.channel,
   ]);
-  const csv = [columns, ...lines].map((row) => row.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")).join("\\r\\n");
+  const csv = [columns, ...lines].map((row) => row.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")).join("\r\n");
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
