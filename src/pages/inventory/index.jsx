@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from "react";
 import { FiArrowDown, FiBox, FiDownload, FiFilter, FiMinus, FiPlus, FiSearch, FiX } from "react-icons/fi";
 import Modal from "../../components/modal";
 import { formatCurrency, getStockLabel } from "../../data";
+import { serializeCsv } from "../../utils/csv";
 import styles from "./styles.module.css";
 
 const stockFilters = ["All stock", "Needs attention", "Out of stock", "In range"];
@@ -9,7 +10,7 @@ const stockFilters = ["All stock", "Needs attention", "Out of stock", "In range"
 const downloadStock = (products) => {
   const rows = [["Product", "SKU", "Category", "Available", "Low stock at", "Status"]];
   products.forEach((product) => rows.push([product.name, product.sku, product.category, product.stock, product.lowAt, getStockLabel(product)]));
-  const csv = rows.map((row) => row.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")).join("\r\n");
+  const csv = serializeCsv(rows);
   const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
   const link = document.createElement("a");
   link.href = url;

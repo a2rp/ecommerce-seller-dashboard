@@ -34,21 +34,33 @@ const productIcons = {
 const makeSeries = (orders, range) => {
   const groups = range === "week" ? 7 : 4;
   return Array.from({ length: groups }, (_, index) => {
-    const date = new Date();
-    const offset = range === "week" ? index - (groups - 1) : (index - (groups - 1)) * 7;
-    date.setDate(date.getDate() + offset);
-    const key = date.toDateString();
-    const amount = orders
-      .filter((order) => {
-        if (order.status === "Cancelled") return false;
+    let label;
+    let inBucket;
+
+    if (range === "week") {
+      const date = new Date();
+      date.setHours(0, 0, 0, 0);
+      date.setDate(date.getDate() + index - (groups - 1));
+      label = date.toLocaleDateString("en-US", { weekday: "short" });
+      inBucket = (order) => new Date(order.placedAt).toDateString() === date.toDateString();
+    } else {
+      const end = new Date();
+      end.setHours(0, 0, 0, 0);
+      end.setDate(end.getDate() + 1 - (groups - 1 - index) * 7);
+      const start = new Date(end);
+      start.setDate(start.getDate() - 7);
+      label = "Week " + (index + 1);
+      inBucket = (order) => {
         const orderDate = new Date(order.placedAt);
-        return range === "week"
-          ? orderDate.toDateString() === key
-          : Math.abs(Math.floor((date.getTime() - orderDate.getTime()) / 86400000)) < 7;
-      })
+        return orderDate >= start && orderDate < end;
+      };
+    }
+
+    const amount = orders
+      .filter((order) => order.status !== "Cancelled" && inBucket(order))
       .reduce((total, order) => total + order.total, 0);
     return {
-      label: range === "week" ? date.toLocaleDateString("en-US", { weekday: "short" }) : "Week " + (index + 1),
+      label,
       amount,
     };
   });

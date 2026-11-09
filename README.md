@@ -54,8 +54,6 @@ The deploy script builds the app, copies the single-page entry to `dist/404.html
 npm run deploy
 ```
 
-Live demo: [https://a2rp.github.io/ecommerce-seller-dashboard/](https://a2rp.github.io/ecommerce-seller-dashboard/)
-
 ## Screenshots
 
 The gallery shows the four app routes and the distinct product, order, and inventory dialog states.

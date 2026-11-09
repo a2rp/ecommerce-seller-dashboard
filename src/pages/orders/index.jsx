@@ -3,6 +3,7 @@ import { FiArrowDown, FiArrowRight, FiCheck, FiDownload, FiFilter, FiPackage, Fi
 import ConfirmationDialog from "../../components/confirmationDialog";
 import Modal from "../../components/modal";
 import { formatCurrency, formatShortDate, orderStatuses } from "../../data";
+import { serializeCsv } from "../../utils/csv";
 import styles from "./styles.module.css";
 
 const nextStatus = {
@@ -23,14 +24,14 @@ const downloadCsv = (rows) => {
     order.status,
     order.channel,
   ]);
-  const csv = [columns, ...lines].map((row) => row.map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")).join("\r\n");
+  const csv = serializeCsv([columns, ...lines]);
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
   link.download = "tandem-orders.csv";
   link.click();
-  URL.revokeObjectURL(url);
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 const OrdersPage = ({ orders, onSetOrderStatus }) => {

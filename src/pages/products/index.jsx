@@ -48,7 +48,7 @@ const ProductsPage = ({ products, onSaveProduct, onDeleteProduct }) => {
       if (sort === "stock") return a.stock - b.stock;
       if (sort === "priceLow") return a.price - b.price;
       if (sort === "priceHigh") return b.price - a.price;
-      if (sort === "recent") return products.indexOf(b) - products.indexOf(a);
+      if (sort === "recent") return products.indexOf(a) - products.indexOf(b);
       return b.sold - a.sold;
     });
   }, [products, search, sort, status]);
